@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:tflite/tflite.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'dart:math' as math;
 
 import 'models.dart';
@@ -21,7 +22,17 @@ class Camera extends StatefulWidget {
 class _CameraState extends State<Camera> {
   CameraController? controller;
   bool isDetecting = false;
-
+//  _cropImage(img) async {
+//     var croppedImage = await ImageCropper.cropImage(
+//       sourcePath: img,
+//       maxWidth: 1080,
+//       maxHeight: 1080,
+//     );
+//     if (croppedImage != null) {
+//       img = croppedImage;
+//       setState(() {});
+//     }
+//   }
   @override
   void initState() {
     super.initState();
@@ -48,13 +59,17 @@ class _CameraState extends State<Camera> {
               bytesList: img.planes.map((plane) {
                 return plane.bytes;
               }).toList(),
-              model: "Tiny YOLOv2",
-              // model: "YOLO",
+              model: yolo,
               imageHeight: img.height,
               imageWidth: img.width,
-              imageMean: 127.5,
-              imageStd: 127.5,
-              numResultsPerClass: 2,
+              imageMean: 0.0,
+              imageStd: 255.0,
+              blockSize: 32,
+              threshold: 0.1,
+              numBoxesPerBlock: 5,
+              numResultsPerClass: 30,
+              rotation: 90,
+              asynch: true,
               anchors: [
                 1.08,
                 1.19,
@@ -67,13 +82,10 @@ class _CameraState extends State<Camera> {
                 16.62,
                 10.52
               ],
-              threshold: 0.6,
             ).then((recognitions) {
               int endTime = new DateTime.now().millisecondsSinceEpoch;
               print("Detection took ${endTime - startTime}");
-
               widget.setRecognitions(recognitions!, img.height, img.width);
-
               isDetecting = false;
             });
           }

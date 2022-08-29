@@ -136,35 +136,33 @@ class _homePageState extends State<homePage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(),
-      body: CameraPreview(cameraController!),
-      // Column(
-      //   children: [
-      //     Center(
-      //       child: TextButton(
-      //           onPressed: () async {
-      //             await initCamera();
-      //           },
-      //           child: Container(
-      //             height: 270,
-      //             width: 360,
-      //             margin: EdgeInsets.only(top: 65),
-      //             child: imgcamera == null
-      //                 ? Container(
-      //                     height: 270,
-      //                     width: 360,
-      //                     child: Icon(Icons.photo_camera),
-      //                   )
-      //                 : AspectRatio(
-      //                     aspectRatio:
-      //                         cameraController!.value.aspectRatio,
-      //                     child: CameraPreview(cameraController!),
-      //                   ),
-      //           )),
-      //     ),
-      //     Text(result)
-      //   ],
-      // )
-    ));
+            appBar: AppBar(),
+            body: Column(
+              children: [
+                Center(
+                  child: TextButton(
+                      onPressed: () async {
+                        await initCamera();
+                      },
+                      child: Container(
+                        height: 270,
+                        width: 360,
+                        margin: EdgeInsets.only(top: 65),
+                        child: imgcamera == null
+                            ? Container(
+                                height: 270,
+                                width: 360,
+                                child: Icon(Icons.photo_camera),
+                              )
+                            : AspectRatio(
+                                aspectRatio:
+                                    cameraController!.value.aspectRatio,
+                                child: CameraPreview(cameraController!),
+                              ),
+                      )),
+                ),
+                Text(result)
+              ],
+            )));
   }
 }

@@ -73,6 +73,11 @@ class BndBox extends StatelessWidget {
       double offset = -10;
       return results.map((re) {
         offset = offset + 14;
+        // lable = re["label"];
+        // print("=============lllllllllllllllllll=================");
+        // print(lable);
+        // print(re["confidence"]);
+        // print("==============================");
         return Positioned(
           left: 10,
           top: offset,

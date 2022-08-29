@@ -74,7 +74,7 @@ class _startState extends State<start> {
             padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 30),
             child: RaisedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed("homePage");
+                Navigator.of(context).pushNamed("Home");
               },
               textColor: Colors.white,
               padding: const EdgeInsets.all(0.0),

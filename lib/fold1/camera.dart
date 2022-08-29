@@ -7,6 +7,7 @@ import 'dart:math' as math;
 import 'models.dart';
 
 typedef void Callback(List<dynamic> list, int h, int w);
+var lable;
 
 class Camera extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -19,8 +20,9 @@ class Camera extends StatefulWidget {
   _CameraState createState() => new _CameraState();
 }
 
+CameraController? controller;
+
 class _CameraState extends State<Camera> {
-  CameraController? controller;
   bool isDetecting = false;
 //  _cropImage(img) async {
 //     var croppedImage = await ImageCropper.cropImage(
@@ -41,9 +43,9 @@ class _CameraState extends State<Camera> {
       print('No camera is found');
     } else {
       controller = new CameraController(
-        widget.cameras[0],
-        ResolutionPreset.high,
-      );
+          widget.cameras[0],
+          // ResolutionPreset.high,
+          ResolutionPreset.medium);
       controller!.initialize().then((_) {
         if (!mounted) {
           return;
@@ -84,9 +86,17 @@ class _CameraState extends State<Camera> {
               ],
             ).then((recognitions) {
               int endTime = new DateTime.now().millisecondsSinceEpoch;
+              print("========================");
               print("Detection took ${endTime - startTime}");
-              widget.setRecognitions(recognitions!, img.height, img.width);
+              print(recognitions);
+              // print(recognitions!.reversed);
+              print(recognitions!.length);
+              print("========================");
+              widget.setRecognitions(recognitions, img.height, img.width);
               isDetecting = false;
+              setState(() {
+                lable = recognitions;
+              });
             });
           }
         });

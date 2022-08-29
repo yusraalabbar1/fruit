@@ -48,11 +48,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'tflite real-time detection',
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: Home(cameras!),
+      //Home(cameras!)
+      home: splash(),
+      routes: {
+        "splash": ((context) => splash()),
+        "start": ((context) => start()),
+        "Home": ((context) => Home(cameras!)),
+      },
     );
   }
 }

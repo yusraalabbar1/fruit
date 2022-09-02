@@ -32,9 +32,6 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.5
-  image: ^3.2.0
-  image_cropper: ^3.0.0
-  image_picker: ^0.8.5+3
   path_provider: ^2.0.11
   tflite: ^1.1.2
 
@@ -75,9 +72,7 @@ flutter:
     - family: HELLO_DENVER_DISPLAY
       fonts:
         - asset: assets/fonts/HELLO_DENVER_DISPLAY_BOLD_Bold_Regular.ttf
-    - family: Almarai
-      fonts:
-        - asset: assets/fonts/Almarai-Regular.ttf
+    
     - family: BAHNSCHRIFT
       fonts:
         - asset: assets/fonts/BAHNSCHRIFT.ttf

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:tflite/tflite.dart';
-import 'package:image_cropper/image_cropper.dart';
 import 'dart:math' as math;
 
 import 'models.dart';
@@ -24,17 +23,6 @@ CameraController? controller;
 
 class _CameraState extends State<Camera> {
   bool isDetecting = false;
-//  _cropImage(img) async {
-//     var croppedImage = await ImageCropper.cropImage(
-//       sourcePath: img,
-//       maxWidth: 1080,
-//       maxHeight: 1080,
-//     );
-//     if (croppedImage != null) {
-//       img = croppedImage;
-//       setState(() {});
-//     }
-//   }
   @override
   void initState() {
     super.initState();
@@ -67,7 +55,7 @@ class _CameraState extends State<Camera> {
               imageMean: 0.0,
               imageStd: 255.0,
               blockSize: 32,
-              threshold: 0.1,
+              threshold: 0.3,
               numBoxesPerBlock: 5,
               numResultsPerClass: 30,
               rotation: 90,

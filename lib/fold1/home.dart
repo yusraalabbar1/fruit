@@ -25,14 +25,13 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+    onSelect(yolo);
   }
 
   loadModel() async {
     String res;
     res = (await Tflite.loadModel(
-        // model: "assets/yolov2_tiny.tflite",
-        // labels: "assets/yolov2_tiny.txt",
-        model: "assets/yolov2-tiny(1).tflite",
+        model: "assets/yolov2-tiny(2).tflite",
         labels: "assets/tflite_label_map.txt"))!;
     print(res);
   }
@@ -198,7 +197,7 @@ class _HomeState extends State<Home> {
         child: lable == null || lable == [] || lable.isEmpty
             ? const Text(
                 "",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 20),
               )
             : Text(
                 funcMatch(lable[0]["detectedClass"].toString())[0][0]
@@ -212,12 +211,12 @@ class _HomeState extends State<Home> {
         child: lable == null || lable == [] || lable.isEmpty
             ? const Text(
                 "",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 20),
               )
             : Text(
                 funcMatch(lable[0]["detectedClass"].toString())[0][1]
                     .toString(),
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white, fontSize: 20),
               ));
   }
 }

@@ -104,46 +104,42 @@ class _HomeState extends State<Home> {
                     screen.height,
                     screen.width,
                     _model),
-                Expanded(
-                  child: Align(
-                      alignment: FractionalOffset.bottomCenter,
-                      child: Container(
-                          height: MediaQuery.of(context).size.height / 4,
-                          width: MediaQuery.of(context).size.width,
-                          color: const Color(0xff351B6F),
-                          child: Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    child: Row(
-                                      children: [
-                                        const Text(
-                                          "Type : \t",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
-                                        ),
-                                        cont1()
-                                      ],
-                                    ),
+                Align(
+                    alignment: FractionalOffset.bottomCenter,
+                    child: Container(
+                        height: MediaQuery.of(context).size.height / 4,
+                        width: MediaQuery.of(context).size.width,
+                        color: const Color(0xff351B6F),
+                        child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Row(
+                                    children: [
+                                      const Text(
+                                        "Type : \t",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                      cont1()
+                                    ],
                                   ),
-                                  Expanded(
-                                    child: Row(
-                                      children: [
-                                        const Text(
-                                          "Lable : \t",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
-                                        ),
-                                        cont2()
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              )))),
-                ),
+                                ),
+                                Expanded(
+                                  child: Row(
+                                    children: [
+                                      const Text(
+                                        "Lable : \t",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                      cont2()
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )))),
               ],
             ),
     );

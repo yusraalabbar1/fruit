@@ -58,7 +58,7 @@ class BndBox extends StatelessWidget {
             ),
             child: Text(
               "${re["detectedClass"]} ${(re["confidenceInClass"] * 100).toStringAsFixed(0)}%",
-              style: TextStyle(
+              style: const TextStyle(
                 color: Color.fromRGBO(37, 213, 253, 1.0),
                 fontSize: 14.0,
                 fontWeight: FontWeight.bold,
@@ -73,11 +73,6 @@ class BndBox extends StatelessWidget {
       double offset = -10;
       return results.map((re) {
         offset = offset + 14;
-        // lable = re["label"];
-        // print("=============lllllllllllllllllll=================");
-        // print(lable);
-        // print(re["confidence"]);
-        // print("==============================");
         return Positioned(
           left: 10,
           top: offset,
@@ -85,7 +80,7 @@ class BndBox extends StatelessWidget {
           height: screenH,
           child: Text(
             "${re["label"]} ${(re["confidence"] * 100).toStringAsFixed(0)}%",
-            style: TextStyle(
+            style: const TextStyle(
               color: Color.fromRGBO(37, 213, 253, 1.0),
               fontSize: 14.0,
               fontWeight: FontWeight.bold,

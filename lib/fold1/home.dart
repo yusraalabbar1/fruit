@@ -198,7 +198,11 @@ class _HomeState extends State<Home> {
             : Text(
                 funcMatch(lable[0]["detectedClass"].toString())[0][0]
                     .toString(),
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(
+                  color: Color.fromARGB(255, 237, 229, 75),
+                  fontSize: 20,
+                  fontFamily: "lato",
+                ),
               ));
   }
 
@@ -212,7 +216,11 @@ class _HomeState extends State<Home> {
             : Text(
                 funcMatch(lable[0]["detectedClass"].toString())[0][1]
                     .toString(),
-                style: const TextStyle(color: Colors.white, fontSize: 20),
+                style: const TextStyle(
+                  color: Color.fromARGB(255, 237, 229, 75),
+                  fontSize: 20,
+                  fontFamily: "lato",
+                ),
               ));
   }
 }

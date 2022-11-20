@@ -43,30 +43,6 @@ class _startState extends State<start> {
               ),
             ),
           ),
-          Center(
-            child: Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              child: const Text(
-                "We use artificial intelligence. Not",
-                style: TextStyle(
-                  color: Color.fromARGB(255, 190, 188, 188),
-                  fontSize: 13,
-                  fontFamily: "lato",
-                ),
-              ),
-            ),
-          ),
-          const Center(
-            child: Text(
-              "all results are correct.",
-              style: TextStyle(
-                color: Color.fromARGB(255, 190, 188, 188),
-                fontSize: 13,
-                fontFamily: "lato",
-              ),
-            ),
-          ),
           SizedBox(
             height: 20,
           ),

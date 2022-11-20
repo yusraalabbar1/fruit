@@ -1,4 +1,4 @@
-package com.example.fruit
+package com.AQDeveloper.fruit
 
 import io.flutter.embedding.android.FlutterActivity
 

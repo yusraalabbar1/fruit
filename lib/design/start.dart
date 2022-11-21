@@ -48,14 +48,16 @@ class _startState extends State<start> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 30),
-            child: RaisedButton(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                textStyle: const TextStyle(color: Colors.white),
+                padding: const EdgeInsets.all(0.0),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80.0)),
+              ),
               onPressed: () {
                 Navigator.of(context).pushNamed("Home");
               },
-              textColor: Colors.white,
-              padding: const EdgeInsets.all(0.0),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(80.0)),
               child: Container(
                 decoration: const BoxDecoration(
                     gradient: LinearGradient(

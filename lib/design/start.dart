@@ -73,16 +73,12 @@ class _startState extends State<start> {
                 padding: const EdgeInsets.fromLTRB(5, 10, 20, 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
+                  children: const [
                     Icon(
-                      // <-- Icon
                       Icons.arrow_circle_right,
                       size: 57.0,
                       color: Color(0xff351B6F),
                     ),
-                    // SizedBox(
-                    //   width: 5,
-                    // ),
                     Text(
                       "Get Started",
                       style: TextStyle(

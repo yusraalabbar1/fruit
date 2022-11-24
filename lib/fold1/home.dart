@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:fruit/fold1/info.dart';
 import 'package:tflite/tflite.dart';
 import 'dart:math' as math;
 
@@ -145,39 +146,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Map fruit = {
-    "Apple_invalid": ["Apple", "Not Fresh"],
-    "Banana_invalid": ["Banana", "Not Fresh"],
-    "Banana_valid": ["Banana", "Fresh"],
-    "Bananas_invalid": ["Bananas", "Not Fresh"],
-    "Bananas_valid": ["Bananas", "Fresh"],
-    "Black_grapes_valid": ["Black grapes", "Fresh"],
-    "Black_raspberries_valid": ["Black raspberries", "Fresh"],
-    "Grapes_invalid": ["Grapes", "Not Fresh"],
-    "Green_apple_valid": ["Green apple", "Fresh"],
-    "Green_grapes_valid": ["Green grapes", "Fresh"],
-    "Mango_invalid": ["Mango", "Not Fresh"],
-    "Mango_valid": ["Apple", "Fresh"],
-    "Orange_invalid": ["Orange", "Not Fresh"],
-    "Orange_valid": ["Orange", "Fresh"],
-    "Pear_invalid": ["Pear", "Not Fresh"],
-    "Pear_valid": ["Pear", "Fresh"],
-    "Pineapple_invalid": ["Pineapple", "Not Fresh"],
-    "Pineapple_valid": ["Pineapple", "Fresh"],
-    "Plum_invalid": ["Plum", "Not Fresh"],
-    "Plum_valid": ["Plum", "Fresh"],
-    "Pomegranate_invalid": ["Pomegranate", "Not Fresh"],
-    "Pomegranate_valid": ["Pomegranate", "Fresh"],
-    "Raspberries_invalid": ["Raspberries", "Not Fresh"],
-    "Red_apple_valid": ["Red apple", "Fresh"],
-    "Red_raspberries_valid": ["Red raspberries", "Fresh"],
-    "Strawberry_invalid": ["Strawberry", "Not Fresh"],
-    "Strawberry_valid": ["Strawberry", "Fresh"],
-    "Watermelon_invalid": ["Watermelon", "Not Fresh"],
-    "Watermelon_valid": ["Watermelon", "Fresh"],
-    "Yellow_apple_valid": ["Yellow apple", "Fresh"]
-  };
-
   funcMatch(word) {
     List typeLable = [];
     fruit.forEach((k, v) {
@@ -213,14 +181,263 @@ class _HomeState extends State<Home> {
                 "",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               )
-            : Text(
-                funcMatch(lable[0]["detectedClass"].toString())[0][1]
-                    .toString(),
-                style: const TextStyle(
-                  color: Color.fromARGB(255, 237, 229, 75),
-                  fontSize: 20,
-                  fontFamily: "lato",
-                ),
+            : Column(
+                children: [
+                  Text(
+                    funcMatch(lable[0]["detectedClass"].toString())[0][1]
+                        .toString(),
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 237, 229, 75),
+                      fontSize: 20,
+                      fontFamily: "lato",
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      textStyle: const TextStyle(color: Colors.white),
+                      padding: const EdgeInsets.all(0.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(80.0)),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed("description");
+                    },
+                    child: Container(
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: <Color>[
+                              Color(0xFFFFFFFFF),
+                              Color(0xFFB971A3),
+                              Color(0xFFA03E82),
+                            ],
+                          ),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(80.0))),
+                      padding: const EdgeInsets.fromLTRB(5, 10, 20, 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: const [
+                          Icon(
+                            Icons.arrow_circle_right,
+                            size: 57.0,
+                            color: Color(0xff351B6F),
+                          ),
+                          Text(
+                            "Read Benefifits",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'lato'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ));
   }
+
+  Map fruit = {
+    "Apple_invalid": [
+      "Apple",
+      "Not Fresh",
+      Red_apple_t,
+      Red_apple_d,
+      "images__1_-removebg-preview.png",
+      "images-removebg-preview.png"
+    ],
+    "Banana_invalid": [
+      "Banana",
+      "Not Fresh",
+      Banana_t,
+      Banana_d,
+      "رؤية-الموز-removebg-preview.png",
+      "tbl_articles_article_27833_4396beb8a7-83fc-4346-83f4-930764803b26-removebg-preview.png"
+    ],
+    "Banana_valid": [
+      "Banana",
+      "Fresh",
+      Banana_t,
+      Banana_d,
+      "رؤية-الموز-removebg-preview.png",
+      "tbl_articles_article_27833_4396beb8a7-83fc-4346-83f4-930764803b26-removebg-preview.png"
+    ],
+    "Bananas_invalid": [
+      "Bananas",
+      "Not Fresh",
+      Banana_t,
+      Banana_d,
+      "رؤية-الموز-removebg-preview.png",
+      "tbl_articles_article_27833_4396beb8a7-83fc-4346-83f4-930764803b26-removebg-preview.png"
+    ],
+    "Bananas_valid": [
+      "Bananas",
+      "Fresh",
+      Banana_t,
+      Banana_d,
+      "رؤية-الموز-removebg-preview.png",
+      "tbl_articles_article_27833_4396beb8a7-83fc-4346-83f4-930764803b26-removebg-preview.png"
+    ],
+    "Black_grapes_valid": [
+      "Black grapes",
+      "Fresh",
+      Grapes_t,
+      Grapes_d,
+      "Grape_-3-17-5-2021-removebg-preview.png",
+      "Grape_-3-17-5-2021-removebg-preview.png"
+    ],
+    "Black_raspberries_valid": ["Black raspberries", "Fresh", "", ""],
+    "Grapes_invalid": [
+      "Grapes",
+      "Not Fresh",
+      Grapes_t,
+      Grapes_d,
+      "Grape_-3-17-5-2021-removebg-preview.png",
+      "Grape_-3-17-5-2021-removebg-preview.png"
+    ],
+    "Green_apple_valid": [
+      "Green apple",
+      "Fresh",
+      Green_apple_t,
+      Green_apple_d,
+      "app.png",
+      "appl.png"
+    ],
+    "Green_grapes_valid": [
+      "Green grapes",
+      "Fresh",
+      Grapes_t,
+      Grapes_d,
+      "Grape_-3-17-5-2021-removebg-preview.png",
+      "Grape_-3-17-5-2021-removebg-preview.png"
+    ],
+    "Mango_invalid": [
+      "Mango",
+      "Not Fresh",
+      Mango_t,
+      Mango_d,
+      "dreamstime_m_15466474__1_-removebg-preview.png",
+      "أنواع_فاكهة_المانجو_وفوائدها_.-removebg-preview.png"
+    ],
+    "Mango_valid": [
+      "Mango",
+      "Fresh",
+      Mango_t,
+      Mango_d,
+      "dreamstime_m_15466474__1_-removebg-preview.png",
+      "أنواع_فاكهة_المانجو_وفوائدها_.-removebg-preview.png"
+    ],
+    "Orange_invalid": [
+      "Orange",
+      "Not Fresh",
+      Orange_t,
+      Orange_d,
+      "تنزيل__1_-removebg-preview.png",
+      "tbl_articles_article_25599_60787bd11dc-2f86-4dcd-be31-429bd6eec361-removebg-preview.png"
+    ],
+    "Orange_valid": [
+      "Orange",
+      "Fresh",
+      Orange_t,
+      Orange_d,
+      "تنزيل__1_-removebg-preview.png",
+      "tbl_articles_article_25599_60787bd11dc-2f86-4dcd-be31-429bd6eec361-removebg-preview.png"
+    ],
+    "Pear_invalid": [
+      "Pear",
+      "Not Fresh",
+      Pear_t,
+      Pear_d,
+      "tbl_articles_article_30979_49465187dfb-c7ba-4c1e-a1b0-48c1613012ca-removebg-preview.png",
+      "2020_10_21_17_6_20_851-removebg-preview.png"
+    ],
+    "Pear_valid": [
+      "Pear",
+      "Fresh",
+      Pear_t,
+      Pear_d,
+      "tbl_articles_article_30979_49465187dfb-c7ba-4c1e-a1b0-48c1613012ca-removebg-preview.png",
+      "2020_10_21_17_6_20_851-removebg-preview.png"
+    ],
+    "Pineapple_invalid": [
+      "Pineapple",
+      "Not Fresh",
+      Pineapple_t,
+      Pineapple_d,
+      "أناناس-750x430-removebg-preview.png",
+      "اناناس-بالصور-2-removebg-preview.png"
+    ],
+    "Pineapple_valid": [
+      "Pineapple",
+      "Fresh",
+      Pineapple_t,
+      Pineapple_d,
+      "أناناس-750x430-removebg-preview.png",
+      "اناناس-بالصور-2-removebg-preview.png"
+    ],
+    "Plum_invalid": ["Plum", "Not Fresh", "", "", "", ""],
+    "Plum_valid": ["Plum", "Fresh", "", "", "", ""],
+    "Pomegranate_invalid": [
+      "Pomegranate",
+      "Not Fresh",
+      Pomegranate_t,
+      Pomegranate_d,
+      "5ipj-15-removebg-preview.png",
+      "tbl_articles_article_31587_94376846dad-61ca-4617-884f-e640fe491ac2-removebg-preview.png"
+    ],
+    "Pomegranate_valid": [
+      "Pomegranate",
+      "Fresh",
+      Pomegranate_t,
+      Pomegranate_d,
+      "5ipj-15-removebg-preview.png",
+      "tbl_articles_article_31587_94376846dad-61ca-4617-884f-e640fe491ac2-removebg-preview.png"
+    ],
+    "Raspberries_invalid": ["Raspberries", "Not Fresh", "", "", "", ""],
+    "Red_apple_valid": [
+      "Red apple",
+      "Fresh",
+      Red_apple_t,
+      Red_apple_d,
+      "images__1_-removebg-preview.png",
+      "images-removebg-preview.png"
+    ],
+    "Red_raspberries_valid": ["Red raspberries", "Fresh", "", "", "", ""],
+    "Strawberry_invalid": [
+      "Strawberry",
+      "Not Fresh",
+      Strawberry_t,
+      Strawberry_d,
+      "20180117205558654-removebg-preview.png",
+      "Strawberries-USA-removebg-preview.png"
+    ],
+    "Strawberry_valid": [
+      "Strawberry",
+      "Fresh",
+      Strawberry_t,
+      Strawberry_d,
+      "20180117205558654-removebg-preview.png",
+      "Strawberries-USA-removebg-preview.png"
+    ],
+    "Watermelon_invalid": [
+      "Watermelon",
+      "Not Fresh",
+      Watermelon_t,
+      Watermelon_d,
+      "TsIHwz-watermelon-clipart-file.png",
+      "watermelon-primal-shisha-gels-primal-brands-13.png"
+    ],
+    "Watermelon_valid": [
+      "Watermelon",
+      "Fresh",
+      Watermelon_t,
+      Watermelon_d,
+      "TsIHwz-watermelon-clipart-file.png",
+      "watermelon-primal-shisha-gels-primal-brands-13.png"
+    ],
+    "Yellow_apple_valid": ["Yellow apple", "Fresh", "", "", "", ""]
+  };
 }

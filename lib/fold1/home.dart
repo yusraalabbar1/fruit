@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:fruit/fold1/description.dart';
 import 'package:fruit/fold1/info.dart';
 import 'package:tflite/tflite.dart';
 import 'dart:math' as math;
@@ -110,9 +111,9 @@ class _HomeState extends State<Home> {
                     child: Container(
                         height: MediaQuery.of(context).size.height / 4,
                         width: MediaQuery.of(context).size.width,
-                        color: const Color(0xff351B6F),
+                        color: Color.fromARGB(255, 7, 41, 80),
                         child: Padding(
-                            padding: const EdgeInsets.all(20.0),
+                            padding: const EdgeInsets.all(10.0),
                             child: Column(
                               children: [
                                 Expanded(
@@ -127,18 +128,7 @@ class _HomeState extends State<Home> {
                                     ],
                                   ),
                                 ),
-                                Expanded(
-                                  child: Row(
-                                    children: [
-                                      const Text(
-                                        "Lable : \t",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
-                                      ),
-                                      cont2()
-                                    ],
-                                  ),
-                                )
+                                Expanded(flex: 2, child: cont2()),
                               ],
                             )))),
               ],
@@ -174,70 +164,103 @@ class _HomeState extends State<Home> {
               ));
   }
 
-  Container cont2() {
-    return Container(
-        child: lable == null || lable == [] || lable.isEmpty
-            ? const Text(
-                "",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              )
-            : Column(
-                children: [
-                  Text(
-                    funcMatch(lable[0]["detectedClass"].toString())[0][1]
-                        .toString(),
-                    style: const TextStyle(
-                      color: Color.fromARGB(255, 237, 229, 75),
-                      fontSize: 20,
-                      fontFamily: "lato",
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      textStyle: const TextStyle(color: Colors.white),
-                      padding: const EdgeInsets.all(0.0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(80.0)),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pushNamed("description");
-                    },
-                    child: Container(
-                      decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: <Color>[
-                              Color(0xFFFFFFFFF),
-                              Color(0xFFB971A3),
-                              Color(0xFFA03E82),
-                            ],
-                          ),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(80.0))),
-                      padding: const EdgeInsets.fromLTRB(5, 10, 20, 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: const [
-                          Icon(
-                            Icons.arrow_circle_right,
-                            size: 57.0,
-                            color: Color(0xff351B6F),
-                          ),
+  Widget cont2() {
+    return Column(
+      children: [
+        Row(
+          children: [
+            const Text(
+              "Lable : \t",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            Container(
+                child: lable == null || lable == [] || lable.isEmpty
+                    ? const Text(
+                        "",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      )
+                    : Column(
+                        children: [
                           Text(
-                            "Read Benefifits",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'lato'),
+                            funcMatch(lable[0]["detectedClass"].toString())[0]
+                                    [1]
+                                .toString(),
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 237, 229, 75),
+                              fontSize: 20,
+                              fontFamily: "lato",
+                            ),
                           ),
                         ],
+                      )),
+          ],
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        lable == null || lable == [] || lable.isEmpty
+            ? Container()
+            : ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 20, 36, 107),
+                  textStyle: const TextStyle(color: Colors.white),
+                  padding: const EdgeInsets.all(0.0),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(80.0)),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => description(
+                              title: funcMatch(lable[0]["detectedClass"]
+                                      .toString())[0][2]
+                                  .toString(),
+                              benefits: funcMatch(lable[0]["detectedClass"]
+                                      .toString())[0][3]
+                                  .toString(),
+                              image1: funcMatch(lable[0]["detectedClass"]
+                                      .toString())[0][4]
+                                  .toString(),
+                              image2: funcMatch(lable[0]["detectedClass"]
+                                      .toString())[0][5]
+                                  .toString(),
+                            )),
+                  );
+                },
+                child: Container(
+                  height: 60,
+                  width: 250,
+                  decoration: const BoxDecoration(
+                      // gradient: LinearGradient(
+                      //   begin: Alignment.topLeft,
+                      //   end: Alignment.bottomRight,
+                      //   colors: <Color>[
+                      //     Color(0xFFFFFFFFF),
+                      //     Color.fromARGB(255, 31, 146, 148),
+                      //     Color.fromARGB(255, 9, 82, 86),
+                      //   ],
+                      // ),
+                      color: Color.fromARGB(255, 31, 61, 120),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  padding: const EdgeInsets.fromLTRB(5, 10, 20, 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: const [
+                      Text(
+                        "Read Benefifits",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'lato'),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ));
+                ),
+              ),
+      ],
+    );
   }
 
   Map fruit = {
@@ -335,16 +358,16 @@ class _HomeState extends State<Home> {
       "Not Fresh",
       Orange_t,
       Orange_d,
+      "tbl_articles_article_25599_60787bd11dc-2f86-4dcd-be31-429bd6eec361-removebg-preview.png",
       "تنزيل__1_-removebg-preview.png",
-      "tbl_articles_article_25599_60787bd11dc-2f86-4dcd-be31-429bd6eec361-removebg-preview.png"
     ],
     "Orange_valid": [
       "Orange",
       "Fresh",
       Orange_t,
       Orange_d,
+      "tbl_articles_article_25599_60787bd11dc-2f86-4dcd-be31-429bd6eec361-removebg-preview.png",
       "تنزيل__1_-removebg-preview.png",
-      "tbl_articles_article_25599_60787bd11dc-2f86-4dcd-be31-429bd6eec361-removebg-preview.png"
     ],
     "Pear_invalid": [
       "Pear",

@@ -59,14 +59,16 @@ class _startState extends State<start> {
                 Navigator.of(context).pushNamed("Home");
               },
               child: Container(
+                height: 70,
+                width: 250,
                 decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: <Color>[
                         Color(0xFFFFFFFFF),
-                        Color(0xFFB971A3),
-                        Color(0xFFA03E82),
+                        Color.fromARGB(255, 31, 146, 148),
+                        Color.fromARGB(255, 9, 82, 86),
                       ],
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(80.0))),
@@ -74,11 +76,11 @@ class _startState extends State<start> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: const [
-                    Icon(
-                      Icons.arrow_circle_right,
-                      size: 57.0,
-                      color: Color(0xff351B6F),
-                    ),
+                    // Icon(
+                    //   Icons.arrow_circle_right,
+                    //   size: 57.0,
+                    //   color: Color(0xff351B6F),
+                    // ),
                     Text(
                       "Get Started",
                       style: TextStyle(

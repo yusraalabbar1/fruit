@@ -248,7 +248,7 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: const [
                       Text(
-                        "Read Benefifits",
+                        "Read More",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,

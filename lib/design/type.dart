@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-class splash extends StatefulWidget {
-  splash({Key? key}) : super(key: key);
+class type extends StatefulWidget {
+  type({Key? key}) : super(key: key);
 
   @override
-  State<splash> createState() => _splashState();
+  State<type> createState() => _typeState();
 }
 
-class _splashState extends State<splash> with AutomaticKeepAliveClientMixin {
+class _typeState extends State<type> with AutomaticKeepAliveClientMixin {
   Timer? searchOnStoppedTyping;
   _onChangeHandler() {
     const duration = Duration(
@@ -22,7 +22,7 @@ class _splashState extends State<splash> with AutomaticKeepAliveClientMixin {
   }
 
   navigateHome() {
-    Navigator.of(context).pushReplacementNamed("type");
+    Navigator.of(context).pushReplacementNamed("start");
   }
 
   @override
@@ -37,8 +37,8 @@ class _splashState extends State<splash> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 2, 6, 47),
-      body: Center(child: Image.asset("assets/DFruit.gif")),
+      backgroundColor: Color.fromARGB(255, 26, 13, 63),
+      body: Center(child: Image.asset("assets/types.png")),
     );
   }
 }

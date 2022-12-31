@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:fruit/design/type.dart';
 import 'package:fruit/fold1/description.dart';
 import 'package:fruit/fold1/home.dart';
 import 'package:fruit/design/home_page.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       home: splash(),
       routes: {
         "splash": ((context) => splash()),
+        "type": ((context) => type()),
         "start": ((context) => start()),
         "Home": ((context) => Home(cameras!)),
         "description": ((context) => description()),
